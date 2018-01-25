@@ -79,6 +79,12 @@ export class AppComponent implements OnInit {
     });
   }
 
+  removeAirChina() {
+   this.airPlanes = this.airPlanes.filter(airPlane =>{
+     return airPlane.carrier !== 'Air China';
+    });
+  }
+
   /*selected(option: string) {
     console.log(this.airPlanes[3].price);
     const arr = [];

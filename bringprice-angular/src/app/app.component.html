@@ -2,11 +2,14 @@
 <div class="wrap">
   <!--select-->
   <div class="select-price">
-    <select #select (change)="airPlanePrice(select.value)">
+    <select #select (click)="airPlanePrice()">
       <option value="min">오름차순</option>
     </select>
   </div>
   <!--select-->
+  <div>
+    <input type="checkbox" (change)="removeAirChina()">airChina
+  </div>
   <!--airplane wrap-->
   <dl class="airplane-wrap">
     <!--airplane info-->
