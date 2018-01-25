@@ -1,0 +1,35 @@
+
+<div class="wrap">
+  <!--airplane wrap-->
+  <dl class="airplane-wrap">
+    <!--airplane info-->
+    <dd class="airplane" *ngFor="let airPlane of airPlanes">
+      <ul class="left-side">
+        <li class="carrier-name">{{airPlane.carrier}}</li>
+        <li class="start">{{airPlane.origin}}</li>
+      </ul>
+      <ul class="center-side">
+        <li class="time">{{sliceTime(airPlane.duration)}}</li>
+        <li class="arrow-wrap">
+          <p class="arrow"></p>
+          <p class="arrow-right"></p>
+        </li>
+        <li class="left-over">
+          <span>{{countLeftOver(airPlane.stops.length)}}</span>
+          <span *ngIf="airPlane.stops.length !== 0">({{airPlane.stops}})</span>
+        </li>
+      </ul>
+      <ul class="right-side">
+        <!-- max sort function -->
+        <li class="price"><span>₩</span>{{priceFormat(airPlane.price)}}</li>
+        <!--<span *></span>-->
+        <p class="test">{{countCircle(airPlane.stops)}}</p>
+        <li class="destin">{{airPlane.destination}}</li>
+      </ul>
+    </dd>
+    <!--airplane info-->
+  </dl>
+  <!--airplane wrap-->
+</div>
+
+
