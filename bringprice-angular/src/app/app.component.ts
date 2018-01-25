@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   // airPlane 맴버 변수 : json 데이터 할당
   airPlanes: any;
   airPlaneTime: string;
+  stopOver: any;
+  min: Array<number>;
   constructor(public http: HttpClient) {
      // 서버 url
      console.log(`[appUrl]`, this.appUrl);
@@ -34,7 +36,6 @@ export class AppComponent implements OnInit {
       });
   }
 
-  // 시간 쪼개는 함수
   sliceTime(duration: number) {
     const durationString = duration.toString();
     let hour = null;
@@ -49,10 +50,10 @@ export class AppComponent implements OnInit {
       return `${hour}h ${min}m`;
   }
   // distinguish direct or leftover
-  countLeftOver(leftover: number) {
-    if (leftover === 0) {
+  countLeftOver(stopOver: number) {
+    if (stopOver === 0) {
       return 'Direct';
-    } return leftover;
+    } return stopOver;
   }
   // 1,000,000
   priceFormat(price: number) {
@@ -72,22 +73,29 @@ export class AppComponent implements OnInit {
     // priceArr.concat(priceString.slice(-3));
   }
 
-  // circle function
-  countCircle(stops: Array<any>) {
-    console.log(stops);
-    let dynamicHtml = '';
-    // 에러 : css circle 클래스 적용이 안 됨. <p class="circle"></p>
-    // inline 방식
-    stops.forEach((i) => {
-      dynamicHtml += `<p style="width:30px; height:30px; border-radius:30px;
-      background:red;">circle</p>`;
-    });
-    // getElementsByClassName는 유사 배열 객체 array-like
-    const circleArr = document.getElementsByClassName('test');
-    // 유사배열객체 > 배열로 전환 (convert)
-    Array.prototype.forEach.call(circleArr, function(i, arr) {
-      console.log(i);
-      i.innerHTML = dynamicHtml;
+  airPlanePrice() {
+    this.airPlanes = this.airPlanes.sort((a, b) => {
+        return a.price - b.price;
     });
   }
+
+  /*selected(option: string) {
+    console.log(this.airPlanes[3].price);
+    const arr = [];
+    // let min = null;
+    /*if ( 'min' === option) {
+
+    }*/
+   // this.airPlanes.forEach(airplane => {
+   //    arr.push(airplane.price);
+       // this.min = arr.sort(function(a, b) {return a - b});
+       // if(min )
+   // });
+   // this.min = arr.sort(function(a, b) {return a - b});
+   // this.airPlanes.forEach(airplane => {
+      // min
+   // });
+  // }
+
+
 }

@@ -2,6 +2,9 @@
 li{list-style: none;}
 
 .wrap{max-width:1280px;}
+/* select */
+.select-price{margin:0 auto 20px; width:80%;}
+.select-price select{width:80px; height:30px;}
 /* dl airplane-wrap*/
 dl{width:80%; margin:0 auto;}
 /* aiplane list */
@@ -19,16 +22,17 @@ dd ul{width:33.33%; height:100%; float:left;}
 /* center-side */
 .center-side{background:yellow;}
 .center-side .time{height:30px; line-height:40px; text-align:center; margin-top:28px;}
-.center-side .arrow-wrap{width:100%; overflow:hidden;}
-.center-side .arrow{width:50%; height:20px; margin:10px 0 0 20%;
-background:yellowgreen; float:left; }
-.center-side .arrow-right{width: 0; height: 0; float:left;
+.center-side .arrow-wrap{width:100%; position:relative;}
+.center-side .arrow{width:50%; height:20px; background:yellowgreen; position:relative; left:25%; top:20px;}
+.center-side .arrow-right{width: 0; height: 0; position:relative; left:75%; top:-10px;
     border-top: 20px solid transparent; border-bottom: 20px solid transparent;
     border-left: 30px solid yellowgreen;}
-.center-side .left-over{text-align:center;}
+.center-side ol{position:relative; left:35%; bottom:45px; width:100%;}
+.center-side ol > li{float:left; margin-left:2%;}
+.center-side .stop-over{text-align:center;}
 /* center-side*/
 .right-side li{width:93%;}
 .right-side .price{padding:30px 7% 10px 0; font-size:20px; text-align: right;}
 .right-side .destin{padding:7px 7% 0 0; text-align:right;}
-/* 동적 html */
+/* circle */
 .circle{background:blue; width:30px; height:30px; border-radius:30px;}
